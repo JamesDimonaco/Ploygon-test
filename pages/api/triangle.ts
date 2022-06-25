@@ -6,7 +6,7 @@ import { ObjectId } from "mongodb";
 
 export default async (req:NextApiRequest, res: NextApiResponse) => {
     
-    const hight = req.body.size1;
+    const Height = req.body.size1;
     const base = req.body.size2;
     const id = req.body.id;
     
@@ -14,10 +14,10 @@ export default async (req:NextApiRequest, res: NextApiResponse) => {
     const db = client.db("Weaver");
 
     if (req.method === 'POST'){
-        console.log(hight, base, id);
+        console.log(Height, base, id);
         
 
-        db.collection("Triangle").insertOne({hight,base }, (err, result) => {
+        db.collection("Triangle").insertOne({Height,base }, (err, result) => {
             if (err) {
                 console.log(err);
                 res.status(500);
@@ -46,7 +46,7 @@ export default async (req:NextApiRequest, res: NextApiResponse) => {
         })
     } else if (req.method === "PUT"){
         
-        db.collection("Triangle").updateOne({"_id": new ObjectId(id)}, {$set: {hight, base}}, (err, result) => {
+        db.collection("Triangle").updateOne({"_id": new ObjectId(id)}, {$set: {Height, base}}, (err, result) => {
             if (err) {
                 console.log(err);
                 res.status(500);

@@ -40,14 +40,14 @@ export default function createPolygon({ create, tabs, update }) {
             </select>
             <div className="flex">
               <label className="sr-only">
-                {polygon === "Rectangles" ? "Width" : "Hight"}
+                {polygon === "Rectangles" ? "Width" : "Height"}
               </label>
               <input
                 name="size1"
                 type="number"
                 id="size1"
                 className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-1/2 sm:text-sm border-gray-300 rounded-md"
-                placeholder={polygon === "Rectangles" ? "Width" : "Hight"}
+                placeholder={polygon === "Rectangles" ? "Width" : "Height"}
               />
               <label className="sr-only">
                 {polygon === "Rectangles" ? "Length" : "Base"}

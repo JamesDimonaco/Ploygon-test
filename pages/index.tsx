@@ -13,7 +13,7 @@ interface IRectangle {
 }
 interface ITrangle {
   _id: string;
-  hight: string
+  Height: string
   base: string
 }
 interface IProps {
@@ -214,7 +214,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
       return (
         <div>
           <ul role="list" className="divide-y divide-gray-200">
-            <li key={'001'}>Width : Length : area</li>
+            <li key={'001'}>Width : Length : Area</li>
             {rectangles.map((rectangle, i) => {
               const area = parseInt(rectangle.width) * parseInt(rectangle.length)
               const rectangleModalData = {
@@ -241,12 +241,13 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
       return (
         <div>
           <ul role="list" className="divide-y divide-gray-200">
-            <li key={'002'}>Hight : Base : area</li>
+            <li key={'002'}>Height : Base : Area</li>
             {triangles.map((triangle, i) => {
-              const area = parseInt(triangle.hight) * parseInt(triangle.base) /2
+
+              const area = parseInt(triangle.Height) * parseInt(triangle.base) /2
               const triangleModalData = {
                 id: triangle._id,
-                size1: triangle.hight,
+                size1: triangle.Height,
                 size2: triangle.base,
                 area: area,
                 type: 'Triangle'
@@ -254,7 +255,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
 
               return (
                 <li key={i} onClick={() => { setOpenModal(true), setModalData(triangleModalData) }} className="px-4 py-4 sm:px-6 flex space-x-4 hover:bg-gray-100 cursor-pointer ">
-                  <p>{triangle.hight}</p>
+                  <p>{triangle.Height}</p>
                   <p>{triangle.base}</p>
                   <p>{area}</p>
                 </li>
@@ -277,7 +278,6 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
         <title>Technical Test</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className="">
         <Notification set={openNotification} show={showNotification} setShow={setShowNotification} />
         <div className="flex flex-col items-center py-24">
@@ -286,7 +286,6 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
         </div>
         <CreatePolygon update={(e) => updateTab(e)}  tabs={tabs} create={(v, v1, v2) => createPolygon(v, v1, v2)} />
         <Tabs numOfTriangles={numOfTriangles} numOfRectangles={numOfRectangles} tabs={tabs} update={(e) => updateTab(e)} />
-
         <div className="bg-white shadow overflow-hidden sm:rounded-md flex flex-col items-center pt-5">
           <RenderData />
         </div>

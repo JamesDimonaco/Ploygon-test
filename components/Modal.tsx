@@ -10,6 +10,8 @@ export default function Modal({ open, setOpen, data, deletePolygon, updatePolygo
     const [size2, setSize2] = useState(data.size2)
 
     const handleCalculateArea = (e) => {
+        console.log(e, 'form testing');
+
         setShowUpdateButton(true)
         const target = e.target.id
         const value = e.target.value
@@ -53,25 +55,26 @@ export default function Modal({ open, setOpen, data, deletePolygon, updatePolygo
                                     </div>
                                     <div className="mt-3 text-center sm:mt-5">
                                         <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                                            Edit your {data?.type}
+                                            Edit {data?.type} <br />
+                                            ID : {data?.id}
                                         </Dialog.Title>
 
 
                                         <div className="mt-5 sm:mt-6">
                                             <form onChange={(e) => handleCalculateArea(e)}>
-                                                <label htmlFor={data?.type === "Rectangle" ? "Width" : "Hight"} className="block text-sm font-medium leading-5 text-gray-700">
-                                                    {data?.type === "Rectangle" ? "Width" : "Hight"}
+                                                <label htmlFor={data?.type === "Rectangle" ? "Width" : "Height"} className="block text-sm font-medium leading-5 text-gray-700">
+                                                    {data?.type === "Rectangle" ? "Width" : "Height"}
                                                 </label>
-                                                <input id={data?.type === "Rectangle" ? "Width" : "Hight"} type="number" className="mt-1 form-input w-full py-2 px-3 border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                                    defaultValue={data.size1} onChange={(e) => setSize1(e.target.value)}/>
+                                                <input id={data?.type === "Rectangle" ? "Width" : "Height"} type="number" className="mt-1 form-input w-full py-2 px-3 border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                                    defaultValue={data.size1} onChange={(e) => setSize1(e.target.value)} />
                                                 <label htmlFor={data?.type === "Rectangle" ? "Length" : "Base"} className="block text-sm font-medium leading-5 text-gray-700">
                                                     {data?.type === "Rectangle" ? "Length" : "Base"}
                                                 </label>
                                                 <input id={data?.type === "Rectangle" ? "Length" : "Base"} type="number" className="mt-1 form-input w-full py-2 px-3 border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                                    defaultValue={data.size2} onChange={(e) => setSize2(e.target.value)}/>
+                                                    defaultValue={data.size2} onChange={(e) => setSize2(e.target.value)} />
                                             </form>
                                             <p className="text-lg mt-1 text-gray-500">
-                                                Calculated area : {calculatedArea}
+                                                Area : {calculatedArea}
                                             </p>
                                         </div>
                                     </div>
@@ -82,7 +85,7 @@ export default function Modal({ open, setOpen, data, deletePolygon, updatePolygo
                                         className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700   sm:text-sm"
                                         onClick={() => setOpen(false)}
                                     >
-                                        Go back
+                                        Back
                                     </button>
                                     <button
                                         type="button"
@@ -90,15 +93,15 @@ export default function Modal({ open, setOpen, data, deletePolygon, updatePolygo
                                         onClick={() => deletePolygon(data.type, data.id)}
 
                                     >
-                                        Delete {data?.type}
+                                        Delete
                                     </button>
                                 </div>
                                 {showUpdateButton && <button
                                     type="button"
                                     className="inline-flex justify-center w-full rounded-md shadow-sm px-2 py-2 my-2 bg-green-600 text-base font-medium text-white hover:bg-green-700   sm:text-sm"
-                                    onClick={() => updatePolygon(data.type, data.id, size1,size2 )}
+                                    onClick={() => updatePolygon(data.type, data.id, size1, size2)}
                                 >
-                                    Update {data?.type}
+                                    Update
                                 </button>}
 
                             </Dialog.Panel>
