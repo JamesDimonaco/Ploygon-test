@@ -33,7 +33,6 @@ export default function Notification({set, show, setShow}) {
                     {set.type === 'success' ? <CheckCircleIcon className="h-6 w-6 text-green-600" aria-hidden="true" /> : <XCircleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />}
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    {/* <p className="text-sm font-medium text-gray-900">Successfully saved!</p> */}
                    <p className="text-sm text-gray-500">{set.message}</p>
                     {}
                   </div>

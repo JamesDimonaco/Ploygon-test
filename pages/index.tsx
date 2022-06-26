@@ -278,18 +278,23 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
         <title>Technical Test</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
+      <main className="p-5 flex flex-col justify-center items-center">
         <Notification set={openNotification} show={showNotification} setShow={setShowNotification} />
-        <div className="flex flex-col items-center py-24">
-          <h1>Technical Test</h1>
-          <h2>By James Dimonaco</h2>
-        </div>
+
         <CreatePolygon update={(e) => updateTab(e)}  tabs={tabs} create={(v, v1, v2) => createPolygon(v, v1, v2)} />
+        <div className="flex flex-col w-1/2 ">
         <Tabs numOfTriangles={numOfTriangles} numOfRectangles={numOfRectangles} tabs={tabs} update={(e) => updateTab(e)} />
-        <div className="bg-white shadow overflow-hidden sm:rounded-md flex flex-col items-center pt-5">
-          <RenderData />
+        
+        <div className="w-full bg-white shadow overflow-hidden sm:rounded-md flex justify-center items-center pt-5">
+        <RenderData />
+        </div>
         </div>
       </main>
+      <footer className="bottom-0 mx-5 flex flex-col items-center justify-center ">
+          <h1>Technical Test</h1>
+          <h2>By James Dimonaco</h2>
+          <h3 className="cursor-pointer"><a href="https://github.com/JamesDimonaco">GitHub</a></h3>
+      </footer>
     </div>
   );
 }
