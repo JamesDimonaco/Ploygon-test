@@ -5,7 +5,7 @@ import { useState } from "react";
 import Modal from "../components/Modal";
 import CreatePolygon from "../components/CreatePolygon";
 import Notification from "../components/Notification";
-
+import { PencilIcon } from '@heroicons/react/outline'
 interface IRectangle {
   _id: string;
   width: string
@@ -214,7 +214,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
       return (
         <div>
           <ul role="list" className="divide-y divide-gray-200">
-            <li key={'001'}>Width : Length : Area</li>
+            <li key={'001'}>Width : Length : Area <strong>cm</strong></li>
             {rectangles.map((rectangle, i) => {
               const area = parseInt(rectangle.width) * parseInt(rectangle.length)
               const rectangleModalData = {
@@ -230,6 +230,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
                     <p>{rectangle.width}</p>
                     <p>{rectangle.length}</p>
                     <p>{area}</p>
+                    <PencilIcon className=" w-4 h-4 text-gray-600" />
                   </li>
                 </>
               )
@@ -241,7 +242,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
       return (
         <div>
           <ul role="list" className="divide-y divide-gray-200">
-            <li key={'002'}>Height : Base : Area</li>
+            <li key={'002'}>Height : Base : Area  <strong>cm</strong></li>
             {triangles.map((triangle, i) => {
 
               const area = parseInt(triangle.Height) * parseInt(triangle.base) /2
@@ -258,6 +259,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
                   <p>{triangle.Height}</p>
                   <p>{triangle.base}</p>
                   <p>{area}</p>
+                  <PencilIcon className="w-4 h-4 text-gray-600" />
                 </li>
               )
             })}
@@ -285,7 +287,7 @@ export default function Home({ isConnected, firstLoadRectangles, firstLoadTriang
         <div className="flex flex-col w-1/2 ">
         <Tabs numOfTriangles={numOfTriangles} numOfRectangles={numOfRectangles} tabs={tabs} update={(e) => updateTab(e)} />
         
-        <div className="w-full bg-white shadow overflow-hidden sm:rounded-md flex justify-center items-center pt-5">
+        <div className="w-full bg-white shadow-md overflow-hidden sm:rounded-md flex justify-center items-center pt-5">
         <RenderData />
         </div>
         </div>

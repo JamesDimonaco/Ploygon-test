@@ -18,8 +18,8 @@ export default function createPolygon({ create, tabs, update }) {
   }
 
   return (
-    <div className="bg-white shadow sm:rounded-lg flex justify-center ">
-      <div className="px-4 py-5 sm:p-6 border-2 mb-5">
+    <div className="bg-white shadow-md sm:rounded-lg flex justify-center ">
+      <div className="px-4 py-5 sm:p-6 mb-5">
         <h3 className="text-lg leading-6 font-medium text-gray-900">Create Polygon</h3>
         <div className="mt-2 max-w-xl text-sm text-gray-500">
           <p>Please complete the below form to add the polygon to the database</p>
