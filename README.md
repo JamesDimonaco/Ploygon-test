@@ -38,7 +38,7 @@ returns three items in an array called results
 
 ---
 #### POST
-post the length and width to add the new rectangle to the database
+post the width and length to add the new rectangle to the database
 
 
 |Name |Required|Type| Description |
@@ -80,24 +80,24 @@ returns three items in an array called results
 
 ---
 #### POST
-post the length and width to add the new triangle to the database
+post the height and base to add the new triangle to the database
 
 
 |Name |Required|Type| Description |
 |--|--| --|--|
-|Height|true|string| set the width of your triangle|
-|Base|true|string|set the length of your triangle|
+|Height|true|string| set the height of your triangle|
+|Base|true|string|set the base of your triangle|
 
 ---
 
 #### UPDATE
-Edit the width and length of the selected triangle
+Edit the height and base of the selected triangle
 
 |Name |Required|Type| Description |
 |--|--| --|--|
 |ID|true|string|ID of triangle
-|Height|true|string|update the width of triangle |
-|Base|true|string|update the length of triangle|
+|Height|true|string|update the height of triangle |
+|Base|true|string|update the base of triangle|
 
 ---
 
